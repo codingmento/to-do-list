@@ -1,0 +1,42 @@
+body{
+  background-color:rgb(211, 144, 241) ;
+}
+.card {
+  
+  margin: 90px auto;
+  width: 600px;
+  background: rgb(180, 95, 219);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=My+Soul&family=Shadows+Into+Light&display=swap');
+.logo {
+    display: flex;
+  justify-content: center;
+   
+    
+}
+
+.white-text {
+  font-family: "Great Vibes", cursive;
+  font-weight: 10rem;
+  font-size: 40px;
+  font-style: normal;
+    color: white;
+}
+
+.purple-text {
+    color: rgb(72, 3, 72);
+      font-family: "Great Vibes", cursive;
+  font-weight: 70rem;
+  font-size: 40px;
+  font-style: normal;
+}
+
+
+.chip {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
