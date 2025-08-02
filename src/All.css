@@ -1,6 +1,13 @@
 body{
   background-color:rgb(211, 144, 241) ;
 }
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -40px;
+}
 .card {
   
   margin: 90px auto;
@@ -39,4 +46,32 @@ body{
   display: flex;
   justify-content: center;
   margin: 20px 0;
+}
+
+
+@media(max-width:620px) {
+  .flex {
+    
+min-width: 400px;
+    min-height: 200px;
+
+  }
+
+  
+
+
+
+}
+@media(max-width:470px) {
+  .flex {
+    margin: -10px 40px;
+max-width: 100px;
+    min-height: 200px;
+
+  }
+
+  
+
+
+
 }

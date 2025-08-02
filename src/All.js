@@ -9,9 +9,9 @@ import CheckIcon from "@mui/icons-material/Check";
 
 export default function All() {
   const [tasks, setTasks] = useState(() => {
-  const stored = localStorage.getItem("tasks");
-  return stored ? JSON.parse(stored) : [];
-});
+    const stored = localStorage.getItem("tasks");
+    return stored ? JSON.parse(stored) : [];
+  });
 
   const [showForm, setShowForm] = useState(false);
   const [editingTaskId, setEditingTaskId] = useState(null);
@@ -94,67 +94,70 @@ export default function All() {
           Task saved successfully!
         </Alert>
       )}
+      <div className="flex">
+        <div className="card" style={{ margin: "90px 340px", width: "500px" }}>
+          <div className="logo">
+            <span className="white-text">To </span>
+            <span className="purple-text"> Do List</span>
+          </div>
+          <hr />
 
-      <div className="card" style={{ margin: "90px 340px", width: "500px" }}>
-        <div className="logo">
-        <span className="white-text">To </span><span className="purple-text">  Do  List</span></div>
-        <hr />
-
-        <Stack direction="row" spacing={1}>
-          <Chip
-            label="Not Completed"
-            onClick={() => setFilter("notCompleted")}
-            clickable
-          />
-          <Chip
-            label="Completed"
-            variant="outlined"
-            onClick={() => setFilter("completed")}
-            clickable
-          />
-          <Chip
-            label="All"
-            variant="outlined"
-            onClick={() => setFilter("all")}
-            clickable
-          />
-        </Stack>
-
-        {filteredTasks.map((task) => (
-          <Tasks
-            key={task.id}
-            id={task.id}
-            title={task.title}
-            details={task.details}
-            onDelete={handleDelete}
-            onEdit={task.completed ? () => {} : handleEdit}
-            onComplete={task.completed ? () => {} : handleComplete}
-            isCompleted={task.completed}
-          />
-        ))}
-
-        <div style={{ marginTop: "30px" }}>
-          {showForm && (
-            <Adddition
-              onClose={() => setShowForm(false)}
-              onAddTask={handleAddTask}
-              taskToEdit={
-                editingTaskId !== null
-                  ? tasks.find((t) => t.id === editingTaskId)
-                  : null
-              }
+          <Stack direction="row" spacing={1}>
+            <Chip
+              label="Not Completed"
+              onClick={() => setFilter("notCompleted")}
+              clickable
             />
-          )}
+            <Chip
+              label="Completed"
+              variant="outlined"
+              onClick={() => setFilter("completed")}
+              clickable
+            />
+            <Chip
+              label="All"
+              variant="outlined"
+              onClick={() => setFilter("all")}
+              clickable
+            />
+          </Stack>
 
-          <Chip
-            label="Add Task"
-            variant="outlined"
-            clickable
-            onClick={() => {
-              setEditingTaskId(null);
-              setShowForm(true);
-            }}
-          />
+          {filteredTasks.map((task) => (
+            <Tasks
+              key={task.id}
+              id={task.id}
+              title={task.title}
+              details={task.details}
+              onDelete={handleDelete}
+              onEdit={task.completed ? () => {} : handleEdit}
+              onComplete={task.completed ? () => {} : handleComplete}
+              isCompleted={task.completed}
+            />
+          ))}
+
+          <div style={{ marginTop: "30px" }}>
+            {showForm && (
+              <Adddition
+                onClose={() => setShowForm(false)}
+                onAddTask={handleAddTask}
+                taskToEdit={
+                  editingTaskId !== null
+                    ? tasks.find((t) => t.id === editingTaskId)
+                    : null
+                }
+              />
+            )}
+
+            <Chip
+              label="Add Task"
+              variant="outlined"
+              clickable
+              onClick={() => {
+                setEditingTaskId(null);
+                setShowForm(true);
+              }}
+            />
+          </div>
         </div>
       </div>
     </>
